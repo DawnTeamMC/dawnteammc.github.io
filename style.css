@@ -1,3 +1,6 @@
+/*        *
+ * BODIES *
+ *        */
 body {
     font-family: "Josefin Sans", sans-serif;
     background-attachment: fixed;
@@ -33,11 +36,56 @@ body#universal_ores {
     color: white;
 }
 
+/*                 *
+ * SIDE NAVIGATION *
+ *                 */
+#sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px; /* Place content 20px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#sidenav ul {
+    list-style-type: none;
+}
+
+#sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+#sidenav a:hover {
+    color: #f1f1f1;
+}
+
+#sidenav #close_button {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
 p, li {
     font-size: 1.2em;
 }
 
-div.white_box {
+.white_box {
     color: black;
     border: thin solid black;
     background: white;
@@ -46,8 +94,13 @@ div.white_box {
     display: inline-block;
 }
 
-div.white_box ul {
+.white_box ul {
     padding-right: 20px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
 }
 
 #page_center {
