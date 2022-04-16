@@ -4,6 +4,7 @@
 <head>
   <title>Promenade</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
   <meta charset="UTF-8">
@@ -19,21 +20,26 @@
   <meta name="twitter:title" content="Promenade">
 </head>
 
-<body id="promenade">
-<div id="sidenav">
-  <a id="close_button" onclick="closeNav()" style="cursor:pointer;">&times;</a>
-  <a href="/">Home</a>
-  <a href="/promenade/blocks">Blocks</a>
+<body>
+<div id="topMenu">
+  <a href="/"><i class="fa fa-fw fa-home"></i></a>
+  <a href="https://discord.gg/8ksTVJu">Discord</a>
+</div>
+
+<div id="sideMenu">
+  <a id="sideMenu:closeBtn" class="button">&times;</a>
+  <a class="active">Promenade</a>
   <a href="/promenade/biomes">Biomes</a>
+  <a href="/promenade/blocks">Blocks</a>
   <a href="/promenade/animals">Animals</a>
   <a href="/promenade/monsters">Monsters</a>
 </div>
-<span onclick="openNav()" style="cursor:pointer;"><div class="white_box">Menu</div></span>
 
-<div id="main">
-  <div id="page_center">
+<div id="main" class="promenade">
+  <span id="sideMenu:openBtn" class="whiteBox button">Wiki</span>
+  <div class="center">
     <h1>Promenade</h1>
-    <div class="white_box">
+    <div class="whiteBox">
       <ul>
         <li><a href="https://github.com/DawnTeamMC/Promenade">Source code</a></li>
         <li><a href="https://www.curseforge.com/minecraft/mc-mods/promenade">CurseForge</a></li>
@@ -41,9 +47,10 @@
       </ul>
     </div>
   </div>
+  <a class="whiteBox button" href="https://www.curseforge.com/minecraft/mc-mods/promenade/files/">Download</a>
 </div>
 
-<script src="navbar.js"></script>
-</body>
+<script src="/navbar.js"></script>
 
+</body>
 </html>
