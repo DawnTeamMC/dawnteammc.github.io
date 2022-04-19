@@ -9,35 +9,40 @@ body {
 /*                     *
  * TOP NAVIGATION MENU *
  *                     */
-#topMenu {
-    width: 100%;
-    background-color: #333;
+header {
     overflow: hidden;
+    transition: margin-left 0.5s;
+    background-color: #333;
 }
 
-#topMenu a {
+header a {
     float: left;
-    display: block;
-    text-align: center;
-    padding: 12px;
+    display: flex;
+
     color: white;
+    text-align: center;
     text-decoration: none;
+    padding: 12px;
     font-size: 17px;
     transition: 0.2s;
 }
 
-#topMenu a:hover {
+header a:hover {
     background-color: #ddd;
     color: black;
 }
 
-#topMenu a.active {
-    background-color: #9e3d04;
+header a.active {
+    background-color: #151515;
     color: white;
 }
 
+header > a + div       { display: none;  }
+header > a:hover + div { display: block; }
+header > a + div:hover { display: block; }
+
 @media screen and (max-width: 500px) {
-    #topMenu a {
+    header a {
         float: none;
         display: block;
     }
@@ -103,39 +108,43 @@ body {
 /*             *
  * OTHER STUFF *
  *             */
-#main {
+#content {
     transition: margin-left 0.5s;
     padding: 20px;
 }
 
-#main.dawn {
+.dawn {
     background-image: linear-gradient(135deg, #de812d 0%, #9c5ae8 100%);
     color: white;
 }
 
-#main.promenade {
+.promenade {
     background-image: linear-gradient(135deg, #99e550 0%, #2a7913 100%);
     color: white;
 }
 
-#main.culinaire {
+.culinaire {
     background-image: linear-gradient(135deg, #ecc954 0%, #daaa34 100%);
     color: white;
 }
 
-#main.artisanat {
+.artisanat {
     background-image: linear-gradient(135deg, #54a8ec 0%, #2586ca 100%);
     color: white;
 }
 
-#main.mubble {
+.mubble {
     background-image: linear-gradient(135deg, #ec6154 0%, #be2e21 100%);
     color: white;
 }
 
-#main.universal_ores {
+.universal_ores {
     background-image: linear-gradient(135deg, #48e8bc 0%, #2ab08b 100%);
     color: white;
+}
+
+p {
+    text-align: center;
 }
 
 p, li {
