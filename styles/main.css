@@ -114,7 +114,7 @@ header > a + div:hover { display: block; }
 }
 
 .dawn {
-    background-image: linear-gradient(135deg, #de812d 0%, #9c5ae8 100%);
+    background-image: linear-gradient(135deg, #4159e7 0%, #a45ef5 100%);
     color: white;
 }
 
