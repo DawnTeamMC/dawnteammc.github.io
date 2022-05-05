@@ -187,10 +187,10 @@ modrinth {
     changelog = releaseChangelog
     releaseType = curseReleaseType
     project.modrinth_game_versions.split(", ").each {
-      gameVersions.add it
+        gameVersions.add it
     }
     project.modrinth_mod_loaders.split(", ").each {
-      loaders.add it
+        loaders.add it
     }
     syncBodyFrom = rootProject.file("modrinth.md").text
 }
