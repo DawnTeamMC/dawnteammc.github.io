@@ -181,7 +181,6 @@ tasks.getByName("curseforge").doLast {
 }
 
 modrinth {
-    debugMode = true
     projectId = project.modrinth_id
     versionName = project.mod_name
     uploadFile = remapJar
