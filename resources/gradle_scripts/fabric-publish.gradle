@@ -193,10 +193,10 @@ modrinth {
         loaders.add it
     }
     project.modrinth_required_dependencies.split(", ").each {
-        dependencies.required.mod it
+        dependencies.required.project it
     }
     project.modrinth_optional_dependencies.split(", ").each {
-        dependencies.optional.mod it
+        dependencies.optional.project it
     }
     syncBodyFrom = rootProject.file("modrinth.md").text
 }
