@@ -10,7 +10,7 @@ buildscript {
         classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
         classpath "org.kohsuke:github-api:1.300"
         classpath "org.ajoberstar.grgit:grgit-gradle:4.1.0"
-        classpath "com.modrinth.minotaur:Minotaur:2.1.2"
+        classpath "com.modrinth.minotaur:Minotaur:2.2.0"
     }
 }
 
@@ -191,6 +191,12 @@ modrinth {
     }
     project.modrinth_mod_loaders.split(", ").each {
         loaders.add it
+    }
+    project.modrinth_required_dependencies.split(", ").each {
+        dependencies.required.mod it
+    }
+    project.modrinth_optional_dependencies.split(", ").each {
+        dependencies.optional.mod it
     }
     syncBodyFrom = rootProject.file("modrinth.md").text
 }
