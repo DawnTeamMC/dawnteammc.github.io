@@ -192,14 +192,16 @@ modrinth {
     project.modrinth_mod_loaders.split(", ").each {
         loaders.add it
     }
-    if (!project.modrinth_required_dependencies.isEmpty()) {
-        project.modrinth_required_dependencies.split(", ").each {
-            dependencies.required.project it
+    dependencies {
+        if (!project.modrinth_required_dependencies.empty) {
+            project.modrinth_required_dependencies.split(", ").each {
+                required.project it
+            }
         }
-    }
-    if (!project.modrinth_optional_dependencies.isEmpty()) {
-        project.modrinth_optional_dependencies.split(", ").each {
-            dependencies.optional.project it
+        if (!project.modrinth_optional_dependencies.empty) {
+            project.modrinth_optional_dependencies.split(", ").each {
+                optional.project it
+            }
         }
     }
     syncBodyFrom = rootProject.file("modrinth.md").text
