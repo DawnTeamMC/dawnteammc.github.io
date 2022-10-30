@@ -11,7 +11,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "net.fabricmc:fabric-loom:0.10-SNAPSHOT"
+        classpath "net.fabricmc:fabric-loom:1.0-SNAPSHOT"
     }
 }
 
@@ -19,7 +19,7 @@ sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.mod_id
-group = "com.github.DawnTeam"
+group = "com.github.hugman"
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
