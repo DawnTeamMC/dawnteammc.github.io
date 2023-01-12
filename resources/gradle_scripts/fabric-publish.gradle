@@ -149,19 +149,25 @@ curseforge {
         mainArtifact.displayName = "$project.mod_name v$version"
         if (!project.curseforge_embedded_libraries.isEmpty() || !project.curseforge_required_dependencies.isEmpty() || !project.curseforge_optional_dependencies.isEmpty()) {
             relations {
-                if (!project.curseforge_embedded_libraries.isEmpty()) {
-                    project.curseforge_embedded_libraries.split(", ").each {
-                        String dep -> embeddedLibrary dep
+                if(project.hasProperty('curseforge_embedded_libraries')) {
+                    if (!project.curseforge_embedded_libraries.isEmpty()) {
+                        project.curseforge_embedded_libraries.split(", ").each {
+                            String dep -> embeddedLibrary dep
+                        }
                     }
                 }
-                if (!project.curseforge_required_dependencies.isEmpty()) {
-                    project.curseforge_required_dependencies.split(", ").each {
-                        String dep -> requiredDependency dep
+                if(project.hasProperty('curseforge_required_dependencies')) {
+                    if (!project.curseforge_required_dependencies.isEmpty()) {
+                        project.curseforge_required_dependencies.split(", ").each {
+                            String dep -> requiredDependency dep
+                        }
                     }
                 }
-                if (!project.curseforge_optional_dependencies.isEmpty()) {
-                    project.curseforge_optional_dependencies.split(", ").each {
-                        String dep -> optionalDependency dep
+                if(project.hasProperty('curseforge_optional_dependencies')) {
+                    if (!project.curseforge_optional_dependencies.isEmpty()) {
+                        project.curseforge_optional_dependencies.split(", ").each {
+                            String dep -> optionalDependency dep
+                        }
                     }
                 }
             }
@@ -193,21 +199,39 @@ modrinth {
         loaders.add it
     }
     dependencies {
-        if (!project.modrinth_required_dependencies.empty) {
-            project.modrinth_required_dependencies.split(", ").each {
-                required.project it
+        if(project.hasProperty('modrinth_embedded_dependencies')) {
+            if (!project.modrinth_embedded_dependencies.empty) {
+                project.modrinth_embedded_dependencies.split(", ").each {
+                    embedded.project it
+                }
             }
         }
-        if (!project.modrinth_optional_dependencies.empty) {
-            project.modrinth_optional_dependencies.split(", ").each {
-                optional.project it
+        if(project.hasProperty('modrinth_required_dependencies')) {
+            if (!project.modrinth_required_dependencies.empty) {
+                project.modrinth_required_dependencies.split(", ").each {
+                    required.project it
+                }
+            }
+        }
+        if(project.hasProperty('modrinth_optional_dependencies')) {
+            if (!project.modrinth_optional_dependencies.empty) {
+                project.modrinth_optional_dependencies.split(", ").each {
+                    optional.project it
+                }
+            }
+        }
+        if(project.hasProperty('modrinth_incompatible_dependencies')) {
+            if (!project.modrinth_incompatible_dependencies.empty) {
+                project.modrinth_incompatible_dependencies.split(", ").each {
+                    incompatible.project it
+                }
             }
         }
     }
     syncBodyFrom = rootProject.file("modrinth.md").text
 }
 
-tasks.modrinth.dependsOn tasks.modrinthSyncBody
+tasks.modrinth.dependsOn(tasks.modrinthSyncBody)
 
 tasks.modrinth.doLast {
     if (wasUploadSuccessful()) {
