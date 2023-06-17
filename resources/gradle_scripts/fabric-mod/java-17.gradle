@@ -48,6 +48,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 processResources {
     inputs.property "version", version
+    version = version.replaceFirst("^v", "")
     filesMatching("fabric.mod.json") {
         expand project.properties
         expand "version": version
