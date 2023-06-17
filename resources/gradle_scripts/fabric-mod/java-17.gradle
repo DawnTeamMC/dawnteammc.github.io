@@ -71,3 +71,17 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+
+            afterEvaluate {
+                artifact remapJar
+            }
+        }
+    }
+}
