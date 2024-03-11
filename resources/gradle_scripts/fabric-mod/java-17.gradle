@@ -11,7 +11,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "net.fabricmc:fabric-loom:1.2-SNAPSHOT"
+        classpath "net.fabricmc:fabric-loom:1.5-SNAPSHOT"
     }
 }
 
@@ -50,7 +50,6 @@ processResources {
     inputs.property "version", version
     version = version.replaceFirst("^v", "")
     filesMatching("fabric.mod.json") {
-        expand project.properties
         expand "version": version
     }
 }
